@@ -12,23 +12,7 @@ Category.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    shirts: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    shorts: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    music: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    hats: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    shoes: {
+    category_name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
