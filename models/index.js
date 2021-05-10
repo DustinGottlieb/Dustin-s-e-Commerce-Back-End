@@ -7,7 +7,7 @@ const ProductTag = require('./ProductTag');
 // Products belongsTo Category
 
 Product.belongsTo(Category, {
-    foregnKey: 'product_id',
+    foregnKey: 'category_id',
 });
 
 // Categories have many Products
@@ -21,7 +21,7 @@ Product.belongsToMany(Tag, {
         model: ProductTag,
         unique: false
     },
-    as: 'product_id'
+    as: 'tag_id'
 });
 
 // Tags belongsToMany Products (through ProductTag)
