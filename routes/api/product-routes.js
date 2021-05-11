@@ -8,10 +8,10 @@ router.get('/', async(req, res) => {
     // find all products
     // be sure to include its associated Category and Tag data
     try {
-        const prductData = await Product.findAll({
+        const productData = await Product.findAll({
             include: [{ model: Category }, { model: Tag, through: ProductTag, as: 'tagged_product' }]
         });
-        res.status(200).json(prductData);
+        res.status(200).json(productData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -48,7 +48,7 @@ router.post('/', async(req, res) => {
       }
     */
     try {
-        const productData = await product.create({
+        const productData = await Product.create(req.body, res, {
             where: {
                 product_name: "Basketball",
                 price: 200.00,
@@ -96,7 +96,7 @@ router.put('/:id', async(req, res) => {
                 id: req.params.id,
             },
         })
-        .then((product) => {
+        .then((Product) => {
             // find all associated tags from ProductTag
             return ProductTag.findAll({ where: { product_id: req.params.id } });
         })
@@ -144,7 +144,7 @@ router.delete('/:id', async(req, res) => {
             return;
         }
 
-        res.status(200).json(projectTag);
+        res.status(200).json(productData);
     } catch (err) {
         res.status(500).json(err);
     }
